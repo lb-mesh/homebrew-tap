@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       # setup-homebrew checks out this repo and taps it as lb-mesh/tap.
-      - uses: Homebrew/actions/setup-homebrew@master
+      - uses: Homebrew/actions/setup-homebrew@main
 
       - name: Style
         run: brew style lb-mesh/tap
