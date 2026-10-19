@@ -1,0 +1,28 @@
+name: brew test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      # setup-homebrew checks out this repo and taps it as lb-mesh/tap.
+      - uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Style
+        run: brew style lb-mesh/tap
+
+      - name: Audit
+        run: brew audit --tap lb-mesh/tap
+
+      - name: Install and test
+        run: |
+          brew install lb-mesh/tap/lbmesh
+          brew test lb-mesh/tap/lbmesh
