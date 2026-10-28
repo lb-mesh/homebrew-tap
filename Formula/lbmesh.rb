@@ -5,7 +5,7 @@
 class Lbmesh < Formula
   desc "Autonomous Local Infrastructure & Container Orchestration CLI"
   homepage "https://lbmesh.io"
-  version "1.0.4"
+  version "1.0.5"
   license "Apache-2.0"
 
   on_macos do
